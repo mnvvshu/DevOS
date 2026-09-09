@@ -1,0 +1,14 @@
+{
+  "name": "@devos/tests-security",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@devos/shared": "workspace:*",
+    "@devos/permissions": "workspace:*",
+    "@devos/tools": "workspace:*",
+    "vitest": "^3.0.0"
+  }
+}

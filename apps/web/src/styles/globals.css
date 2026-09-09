@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Light theme */
+  --devos-bg: #fafafa;
+  --devos-surface: #ffffff;
+  --devos-surface-hover: #f5f5f5;
+  --devos-border: #e5e5e5;
+  --devos-text: #171717;
+  --devos-text-secondary: #737373;
+  --devos-accent: #2563eb;
+  --devos-accent-hover: #1d4ed8;
+  --devos-success: #16a34a;
+  --devos-warning: #d97706;
+  --devos-error: #dc2626;
+}
+
+.dark {
+  --devos-bg: #0a0a0a;
+  --devos-surface: #171717;
+  --devos-surface-hover: #262626;
+  --devos-border: #2e2e2e;
+  --devos-text: #f5f5f5;
+  --devos-text-secondary: #a3a3a3;
+  --devos-accent: #3b82f6;
+  --devos-accent-hover: #2563eb;
+  --devos-success: #22c55e;
+  --devos-warning: #f59e0b;
+  --devos-error: #ef4444;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--devos-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--devos-text-secondary);
+}
+
+/* Smooth transitions */
+* {
+  transition-property: background-color, border-color;
+  transition-duration: 150ms;
+}
+
+/* Code block styling */
+pre code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Focus ring */
+*:focus-visible {
+  outline: 2px solid var(--devos-accent);
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background: var(--devos-accent);
+  color: white;
+}

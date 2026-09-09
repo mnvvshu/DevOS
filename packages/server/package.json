@@ -1,0 +1,42 @@
+{
+  "name": "@devos/server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/main.ts",
+    "start": "node dist/main.js",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src/",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "@devos/shared": "workspace:*",
+    "@devos/logger": "workspace:*",
+    "@devos/database": "workspace:*",
+    "@devos/ai-providers": "workspace:*",
+    "@devos/agent": "workspace:*",
+    "@devos/tools": "workspace:*",
+    "@devos/permissions": "workspace:*",
+    "@devos/repo-intel": "workspace:*",
+    "@devos/git-ops": "workspace:*",
+    "@devos/system": "workspace:*",
+    "@fastify/cors": "^10.0.0",
+    "@fastify/websocket": "^11.0.0",
+    "dotenv": "^16.0.0",
+    "fastify": "^5.0.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.0.0"
+  }
+}

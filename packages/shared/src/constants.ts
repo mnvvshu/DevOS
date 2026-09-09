@@ -1,0 +1,10 @@
+export const DEFAULT_PORT = 3712;
+export const DEFAULT_HOST = '127.0.0.1';
+export const DEFAULT_COMMAND_TIMEOUT_MS = 30_000;
+export const MAX_FILE_SIZE_BYTES = 10 * 1024 * 1024; // 10MB
+export const MAX_CONTEXT_FILES = 10;
+export const MAX_CONTEXT_TOKENS = 32_000;
+export const MAX_SEARCH_RESULTS = 50;
+export const MAX_PROCESS_LIST = 100;
+export const WEBSOCKET_PATH = '/ws';
+export const API_PREFIX = '/api/v1';

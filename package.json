@@ -1,0 +1,44 @@
+{
+  "name": "devos",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local-first AI Developer OS — understand repos, diagnose problems, modify code safely",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/user/devos"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "scripts": {
+    "dev": "turbo dev",
+    "dev:web": "turbo dev --filter=@devos/web",
+    "dev:server": "turbo dev --filter=@devos/server",
+    "build": "turbo build",
+    "test": "turbo test",
+    "test:unit": "turbo test:unit",
+    "test:integration": "turbo test:integration",
+    "test:security": "vitest run --project tests/security",
+    "lint": "turbo lint",
+    "lint:fix": "turbo lint -- --fix",
+    "typecheck": "turbo typecheck",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,css,md,yml,yaml}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,css,md,yml,yaml}\"",
+    "clean": "turbo clean && rimraf node_modules",
+    "db:generate": "pnpm --filter @devos/database run generate",
+    "db:migrate": "pnpm --filter @devos/database run migrate",
+    "prepare": "echo 'DevOS ready'"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "eslint": "^9.0.0",
+    "prettier": "^3.4.0",
+    "rimraf": "^6.0.0",
+    "turbo": "^2.4.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  },
+  "packageManager": "pnpm@12.3.4"
+}

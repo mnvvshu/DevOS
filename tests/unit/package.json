@@ -1,0 +1,20 @@
+{
+  "name": "@devos/tests-unit",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "@devos/shared": "workspace:*",
+    "@devos/logger": "workspace:*",
+    "@devos/permissions": "workspace:*",
+    "@devos/tools": "workspace:*",
+    "@devos/repo-intel": "workspace:*",
+    "@devos/system": "workspace:*",
+    "@devos/database": "workspace:*",
+    "@devos/git-ops": "workspace:*",
+    "vitest": "^3.0.0"
+  }
+}

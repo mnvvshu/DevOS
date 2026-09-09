@@ -1,0 +1,29 @@
+{
+  "name": "@devos/agent",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src/",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "@devos/shared": "workspace:*",
+    "@devos/logger": "workspace:*",
+    "@devos/ai-providers": "workspace:*",
+    "@devos/tools": "workspace:*",
+    "@devos/permissions": "workspace:*",
+    "@devos/repo-intel": "workspace:*"
+  }
+}

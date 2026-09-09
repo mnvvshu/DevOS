@@ -1,252 +1,315 @@
-# DevOS
-
 <div align="center">
 
-**Local-First AI Developer OS**
+<img src="https://img.icons8.com/fluency/96/console.png" width="80" alt="DevOS Logo"/>
 
-*Understand your codebase. Diagnose problems. Fix bugs. Run tests. All from one place.*
+# DevOS
 
-[![CI](https://github.com/user/devos/actions/workflows/ci.yml/badge.svg)](https://github.com/user/devos/actions/workflows/ci.yml)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue.svg)](https://www.typescriptlang.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+### 🧠 Your Local AI-Powered Developer Operating System
 
-</div>
+*The open-source, self-hosted coding assistant that actually understands your codebase.*
+
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![Fastify](https://img.shields.io/badge/Fastify-5-000000?style=for-the-badge&logo=fastify&logoColor=white)](https://fastify.dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=for-the-badge)](docs/CONTRIBUTING.md)
+
+<br/>
+
+**DevOS is NOT another AI chatbot wrapper.**<br/>
+It's a full-stack developer workstation with an AI agent that can read your code, run your tests, diagnose failures, propose fixes, and execute commands — all with your approval, all on your machine.
+
+<br/>
+
+[Getting Started](#-getting-started) •
+[Features](#-features) •
+[Architecture](#-architecture) •
+[Security](#-security-model) •
+[Contributing](#-contributing)
 
 ---
 
-## What is DevOS?
+</div>
 
-DevOS is a **local-first AI-powered developer workstation** that acts as your intelligent coding assistant. Unlike simple AI chatbots, DevOS can:
+<br/>
 
-- 🔍 **Understand your repository** — automatically detects languages, frameworks, build systems, and project structure
-- 🐛 **Diagnose problems** — reads files, inspects logs, analyzes Git changes, and monitors system resources  
-- 🛠️ **Fix issues** — proposes targeted code changes, runs tests, and shows diffs
-- 🛡️ **Stays safe** — every destructive action requires explicit user approval
-- 💾 **Runs locally** — your code never leaves your machine unless you configure an external AI provider
+## ⚡ What Makes DevOS Different?
 
-## Architecture
+| | ChatGPT / Copilot Chat | DevOS |
+|---|---|---|
+| **Sees your files** | ❌ You paste code manually | ✅ Reads any file in your repo |
+| **Runs commands** | ❌ No | ✅ Executes with your approval |
+| **Understands project** | ❌ No context | ✅ Detects language, framework, tests |
+| **Runs tests** | ❌ No | ✅ Runs and parses results |
+| **Git aware** | ❌ No | ✅ Status, diff, log, branches |
+| **System diagnostics** | ❌ No | ✅ CPU, RAM, disk, processes |
+| **Your data stays local** | ❌ Sent to cloud | ✅ Everything on your machine |
+| **Open source** | ❌ | ✅ MIT Licensed |
+
+<br/>
+
+## 🎬 How It Works
 
 ```
-┌──────────────────────────────────────────────────┐
-│                    DevOS                         │
-├───────────────┬──────────────────────────────────┤
-│ Sidebar        │ AI Chat Panel                    │
-│                │                                   │
-│ 📂 Project     │ User: Why is my API slow?         │
-│ 🔀 Git         │                                   │
-│ 📊 System      │ 🤖 Analyzing repository...         │
-│ 📜 History     │    ✓ Read server/routes.ts          │
-│                │    ✓ Found N+1 query pattern       │
-│                │    ✓ Proposed fix                   │
-│                │                                   │
-│                │ [Review Diff] [Apply] [Run Tests]│
-└───────────────┴──────────────────────────────────┘
+You:  "Why are my tests failing?"
+
+DevOS Agent:
+  🔍 Reading test output...
+  📂 Found 3 failing tests in auth.test.ts
+  📖 Reading src/auth/validate.ts...
+  🐛 Root cause: missing null check on line 47
+  ✏️  Proposing fix...
+  ⏳ Awaiting your approval...
+
+You:  ✅ Approve
+
+DevOS Agent:
+  💾 Applied fix to src/auth/validate.ts
+  🧪 Running tests...
+  ✅ All 124 tests passing
 ```
 
-## Features
+> The agent **thinks → acts → observes → repeats** using a [ReAct loop](https://arxiv.org/abs/2210.03629) with real tools, not just text generation.
 
-### 🤖 AI Agent with Tool Calling
-- ReAct-style agent loop with explicit tool calls
-- 12+ built-in tools for filesystem, Git, code search, terminal, and system diagnostics
-- Every tool has strict input validation, timeout enforcement, and structured error handling
+<br/>
 
-### 🛡️ Security-First Design
-- **Three-tier permission system**: Safe (auto-approved), Requires Approval (user prompt), Blocked (always denied)
-- Command injection prevention via `execFile` (never `exec`)
-- Path traversal detection and prevention
-- Sensitive file access blocking (.env, SSH keys)
-- Repository contents treated as untrusted input (prompt injection defense)
-
-### 📊 System Diagnostics
-- CPU, RAM, and disk usage monitoring
-- Process listing with resource consumption
-- Network connection inspection
-- Cross-platform support (Windows primary, Linux/macOS structured for extension)
-
-### 🔀 Git Integration
-- Repository status, diff, and log
-- Branch information
-- Changed file tracking
-- Commit history with details
-
-### 💾 Local-First Storage
-- SQLite database with WAL mode for concurrent access
-- Task history with full audit trail
-- Session management
-- Settings persistence
-- No data leaves your machine
-
-### 🎨 Modern Developer UI
-- Dark/light mode
-- Command palette (Ctrl+K / ⌘K)
-- Real-time agent event streaming via WebSocket
-- Code diff viewer
-- System monitor dashboard
-- Keyboard shortcuts
-- Responsive layout
-
-## Quick Start
+## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js 20+
-- pnpm 9+
-- Git
 
-### Installation
+- **Node.js** 20+ &nbsp;·&nbsp; **pnpm** 9+ &nbsp;·&nbsp; **Git**
+
+### Install & Run
 
 ```bash
-git clone https://github.com/user/devos.git
-cd devos
+# Clone
+git clone https://github.com/mnvvshu/DevOS.git
+cd DevOS
 
 # Install dependencies
 pnpm install
 
-# Configure environment
+# Configure AI provider
 cp .env.example .env
-# Edit .env with your AI provider API key
+# Edit .env (see below)
 
-# Run database migrations
-pnpm db:migrate
-
-# Start development server
+# Start dev servers
 pnpm dev
 ```
 
-### Configuration
+Then open **http://localhost:5173** 🎉
 
-Edit `.env` to configure your AI provider:
+### Configure AI Provider
 
 ```env
-# OpenAI (default)
+# Option 1: OpenAI
 AI_PROVIDER=openai
 OPENAI_API_KEY=sk-...
 
-# Anthropic
+# Option 2: Anthropic (Claude)
 AI_PROVIDER=anthropic
 ANTHROPIC_API_KEY=sk-ant-...
 
-# Ollama (fully local, no API key needed)
+# Option 3: Ollama (100% free & local)
 AI_PROVIDER=ollama
 OLLAMA_BASE_URL=http://localhost:11434
 OLLAMA_MODEL=llama3.1
 ```
 
-## Example Workflows
+> 💡 **No API key?** Use [Ollama](https://ollama.com) — it's free, runs locally, and keeps everything private.
 
-### "Why are my tests failing?"
+<br/>
+
+## 🧰 Features
+
+### 🤖 AI Agent — Not a Chatbot
+
+A **ReAct-style autonomous agent** that chains tool calls to solve problems. It doesn't just generate text — it reads files, runs commands, and takes action.
+
+| Tool | Permission | What It Does |
+|---|---|---|
+| `read_file` | ✅ Safe | Read any file in your project |
+| `write_file` | ⚠️ Approval | Propose and apply code changes |
+| `list_directory` | ✅ Safe | Browse folder structure |
+| `search_files` | ✅ Safe | Find files by name or glob pattern |
+| `search_code` | ✅ Safe | Grep through code with regex |
+| `run_command` | ⚠️ Approval | Execute shell commands securely |
+| `run_tests` | ⚠️ Approval | Run test suite and parse results |
+
+### 🔍 Repository Intelligence
+
+- Auto-detects **language**, **framework**, **package manager**, **test runner**, and **build tool**
+- Builds a searchable file index of your entire project
+- Scores file relevance to surface the right context for every query
+
+### 📊 System Diagnostics Dashboard
+
+Real-time monitoring built into the sidebar:
+
+- **CPU** — Per-core usage with interval sampling
+- **Memory** — Used / free / total with percentage
+- **Disk** — Per-drive capacity and usage
+- **Processes** — Top processes sorted by memory
+- **Network** — Active connections with ports and state
+
+### 🔀 Git Integration
+
+- Current branch, status, and uncommitted changes
+- Full diff and staged diff
+- Commit log with details
+- Branch listing
+
+### 🎨 Developer UI
+
+- ⌨️ **Command Palette** — `Ctrl+K` / `⌘K` for quick actions
+- 🌙 **Dark / Light mode** — System-aware theming
+- ⚡ **Real-time streaming** — WebSocket events show agent thinking live
+- 📱 **Responsive layout** — Collapsible sidebar, fluid panels
+
+<br/>
+
+## 🏗 Architecture
+
 ```
-1. DevOS reads your test output
-2. Identifies the 3 failing tests
-3. Reads the relevant source files
-4. Determines the root cause (missing null check)
-5. Proposes a targeted fix
-6. Asks for your approval
-7. Applies the change
-8. Runs the tests again
-9. Shows: ✓ All 124 tests passing
+┌─────────────────────────────────────────────────────────────┐
+│                         DevOS                               │
+│                                                             │
+│  ┌──────────┐    HTTP/WS    ┌─────────────────────────────┐ │
+│  │  React   │◄────────────►│     Fastify Server          │ │
+│  │  Frontend│               │                             │ │
+│  │          │               │  ┌─────────┐  ┌──────────┐ │ │
+│  │ • Chat   │               │  │  Agent  │  │  Tools   │ │ │
+│  │ • Sidebar│               │  │  (ReAct)│─►│ Registry │ │ │
+│  │ • Cmd+K  │               │  └────┬────┘  └──────────┘ │ │
+│  └──────────┘               │       │                     │ │
+│                              │  ┌────▼────┐  ┌──────────┐ │ │
+│                              │  │   AI    │  │Permission│ │ │
+│                              │  │Provider │  │ Engine   │ │ │
+│                              │  └─────────┘  └──────────┘ │ │
+│                              └─────────────────────────────┘ │
+└─────────────────────────────────────────────────────────────┘
 ```
 
-### "Explain the project architecture"
-```
-1. DevOS scans your project structure
-2. Detects: React + FastAPI + PostgreSQL + Docker
-3. Identifies entry points and configuration
-4. Maps component relationships
-5. Produces a clear architecture summary
-```
-
-## Project Structure
+### Monorepo Structure
 
 ```
 DevOS/
 ├── apps/
-│   ├── desktop/          # Electron shell (future)
-│   └── web/              # React frontend (Vite)
+│   ├── web/                # React 19 + Vite + Tailwind CSS
+│   └── desktop/            # Electron shell (security hardened)
 │
 ├── packages/
-│   ├── agent/            # AI agent core (ReAct loop)
-│   ├── ai-providers/     # Multi-provider AI abstraction
-│   ├── database/         # SQLite + Drizzle ORM
-│   ├── git-ops/          # Git operations (read-only)
-│   ├── logger/           # Structured logging + events
-│   ├── permissions/      # Permission engine + validation
-│   ├── repo-intel/       # Repository intelligence
-│   ├── server/           # Fastify API + WebSocket
-│   ├── shared/           # Shared types + utilities
-│   ├── system/           # OS diagnostics
-│   └── tools/            # Agent tool implementations
+│   ├── shared/             # Types, utilities, Zod schemas
+│   ├── logger/             # Structured JSON logging + EventBus
+│   ├── database/           # JSON file-based storage engine
+│   ├── ai-providers/       # OpenAI, Anthropic, Ollama adapters
+│   ├── system/             # OS-level diagnostics
+│   ├── git-ops/            # Git operations (read-only by default)
+│   ├── repo-intel/         # Language/framework auto-detection
+│   ├── tools/              # 7 agent tools with validation
+│   ├── permissions/        # 3-tier permission engine
+│   ├── agent/              # ReAct agent loop
+│   └── server/             # Fastify REST + WebSocket API
 │
 ├── tests/
-│   ├── unit/             # Unit tests
-│   └── security/         # Security tests
+│   ├── unit/               # Permissions, utils, detection, metrics
+│   └── security/           # Injection, traversal, prompt attacks
 │
-└── docs/                 # Documentation
+├── docs/                   # ARCHITECTURE · SECURITY · API · CONTRIBUTING
+└── .github/workflows/      # CI pipeline (lint, test, build)
 ```
 
-## Security Model
+<br/>
 
-See [SECURITY.md](docs/SECURITY.md) for the full security design.
+## 🛡 Security Model
 
-| Permission Level | Actions | Behavior |
+> Security isn't an afterthought — it's the foundation.
+
+### Three-Tier Permission System
+
+| Level | Example Actions | Behavior |
 |---|---|---|
-| ✅ Safe | Read files, search code, Git status/log, system metrics | Auto-approved |
-| ⚠️ Requires Approval | Write files, run commands, Git commit, install deps | User prompt with risk assessment |
-| 🛑 Blocked | rm -rf, format, credential access, privilege escalation | Always denied |
+| ✅ **Safe** | Read files, search code, git status, system metrics | Auto-approved |
+| ⚠️ **Requires Approval** | Write files, run commands, install packages | UI prompt with risk assessment |
+| 🛑 **Blocked** | `rm -rf`, format disk, access credentials, escalate privileges | Always denied, always logged |
 
-## Tech Stack
+### Defense in Depth
 
-| Layer | Technology |
-|---|---|
-| Frontend | React 19 + Vite + Tailwind CSS |
-| Backend | Fastify 5 + WebSocket |
-| Database | SQLite + better-sqlite3 + Drizzle ORM |
-| AI | Custom multi-provider (OpenAI, Anthropic, Ollama) |
-| Monorepo | pnpm + Turborepo |
-| Testing | Vitest + Playwright |
-| Language | TypeScript (strict mode) throughout |
+- **No `exec()`** — All commands use `execFile()` to prevent shell injection
+- **Path traversal protection** — Resolves and validates all paths against project root
+- **Sensitive file blocking** — `.env`, SSH keys, and credentials are never readable
+- **Prompt injection defense** — Repository contents are treated as untrusted input
+- **Audit logging** — Every action is recorded with risk level and decision
 
-## Development
+Read the full security design → [**SECURITY.md**](docs/SECURITY.md)
+
+<br/>
+
+## 🧪 Tech Stack
+
+| Layer | Technology | Why |
+|---|---|---|
+| **Language** | TypeScript (strict) | End-to-end type safety |
+| **Frontend** | React 19 + Vite + Tailwind | Modern, fast, beautiful |
+| **Backend** | Fastify 5 + WebSocket | High performance, plugin ecosystem |
+| **Database** | JSON file storage | Zero native deps, portable |
+| **AI** | Raw `fetch()` + SSE | No SDK lock-in, full streaming control |
+| **Monorepo** | pnpm + Turborepo | Fast installs, cached builds |
+| **Testing** | Vitest | Fast, TypeScript-native |
+| **Desktop** | Electron | Cross-platform packaging |
+
+<br/>
+
+## 🛠 Development
 
 ```bash
-pnpm dev           # Start dev servers
-pnpm build         # Production build
-pnpm test          # Run all tests
-pnpm lint          # Lint code
-pnpm typecheck     # Type check
-pnpm format        # Format code
+pnpm dev           # Start all dev servers
+pnpm build         # Production build (all 13 packages)
+pnpm test          # Run unit + security tests
+pnpm typecheck     # TypeScript strict check
+pnpm lint          # ESLint
 ```
 
-## Supported Platforms
+<br/>
 
-| Platform | Status | Notes |
-|---|---|---|
-| Windows | ✅ Primary | Full support |
-| Linux | 🟡 Partial | System diagnostics use platform adapters |
-| macOS | 🟡 Partial | System diagnostics use platform adapters |
+## 🗺 Roadmap
 
-## Limitations
-
-- AI features require an API key (OpenAI/Anthropic) or local Ollama installation
-- System diagnostics commands are Windows-primary; Linux/macOS adapters need extension
-- No Electron desktop packaging yet (web app only in MVP)
-- File search uses line-by-line scanning (planned: bundled ripgrep for large repos)
-- No multi-model orchestration (single model per session)
-
-## Roadmap
-
-- [ ] Electron desktop application packaging
-- [ ] Bundled ripgrep for faster code search
-- [ ] Tree-sitter AST analysis for smarter context selection
-- [ ] Terminal emulator (xterm.js) in the UI
+- [ ] Electron desktop packaging & auto-updates
+- [ ] Bundled ripgrep for instant code search
+- [ ] Tree-sitter AST analysis for smarter context
+- [ ] Integrated terminal (xterm.js)
 - [ ] Multi-file diff viewer
 - [ ] Agent memory across sessions
 - [ ] Plugin system for custom tools
 - [ ] MCP (Model Context Protocol) support
+- [ ] Multi-model orchestration
 
-## Contributing
+<br/>
 
-See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for guidelines.
+## 🤝 Contributing
 
-## License
+Contributions are welcome! Please read [**CONTRIBUTING.md**](docs/CONTRIBUTING.md) before submitting a PR.
 
-MIT
+```bash
+# Fork → Clone → Branch → Code → Test → PR
+pnpm test          # Make sure tests pass
+pnpm typecheck     # Make sure types are clean
+```
+
+<br/>
+
+## 📄 License
+
+MIT — do whatever you want with it.
+
+<br/>
+
+---
+
+<div align="center">
+
+**Built with 🧠 by [mnvvshu](https://github.com/mnvvshu)**
+
+If this helped you, give it a ⭐
+
+</div>

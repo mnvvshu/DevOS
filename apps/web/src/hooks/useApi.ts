@@ -48,8 +48,34 @@ export function useApi() {
   }, []);
 
   const getSettings = useCallback(async () => {
-    return fetchApi<Record<string, unknown>>('/settings');
+    return fetchApi<{
+      aiProvider: string;
+      hasOpenAIKey: boolean;
+      hasAnthropicKey: boolean;
+      hasGeminiKey: boolean;
+    }>('/settings');
   }, []);
 
-  return { chat, analyzeProject, getSystemDashboard, getGitStatus, getSettings };
+  const switchProvider = useCallback(async (provider: string) => {
+    return fetchApi<{ success: boolean; provider: string }>('/settings/provider', {
+      method: 'POST',
+      body: JSON.stringify({ provider }),
+    });
+  }, []);
+
+  const getProjectFiles = useCallback(async (path: string) => {
+    return fetchApi<{ files: Array<{ path: string; isDirectory: boolean; size: number; modified: string }> }>('/project/files', {
+      method: 'POST',
+      body: JSON.stringify({ path }),
+    });
+  }, []);
+
+  const getFileContent = useCallback(async (projectPath: string, filePath: string) => {
+    return fetchApi<{ content: string; path: string }>('/settings/file-content', {
+      method: 'POST',
+      body: JSON.stringify({ projectPath, filePath }),
+    });
+  }, []);
+
+  return { chat, analyzeProject, getSystemDashboard, getGitStatus, getSettings, switchProvider, getProjectFiles, getFileContent };
 }

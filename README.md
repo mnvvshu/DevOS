@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="docs/logo.png" alt="DevOS Logo" width="220" style="border-radius: 24px; margin-bottom: 16px;" />
+
 # DevOS
 
 **A local-first AI developer OS that actually does things.**

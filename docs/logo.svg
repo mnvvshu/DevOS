@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#0c192c" />
+      <stop offset="100%" stop-color="#030712" />
+    </radialGradient>
+
+    <!-- Core Blue Gradients -->
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+
+    <linearGradient id="cyanGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+
+    <linearGradient id="topFaceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#1e3a8a" stop-opacity="0.6" />
+    </linearGradient>
+
+    <linearGradient id="leftFaceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.9" />
+    </linearGradient>
+
+    <linearGradient id="rightFaceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#0b1329" stop-opacity="0.95" />
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="neonGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0284c7" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Base Rounded Container -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" />
+  <rect width="510" height="510" x="1" y="1" rx="111" fill="none" stroke="rgba(56, 189, 248, 0.2)" stroke-width="2" />
+
+  <!-- Ambient Light / Core Glow -->
+  <circle cx="256" cy="235" r="140" fill="#38bdf8" opacity="0.12" filter="url(#neonGlow)" />
+
+  <!-- Central Isometric Tech Cube -->
+  <g filter="url(#softShadow)" transform="translate(0, -10)">
+    <!-- Top Face -->
+    <polygon points="256,120 366,182 256,244 146,182" fill="url(#topFaceGrad)" stroke="#38bdf8" stroke-width="3" stroke-linejoin="round" />
+    <!-- Inner Circuit on Top Face -->
+    <polygon points="256,145 330,186 256,228 182,186" fill="none" stroke="#7dd3fc" stroke-width="2" opacity="0.6" stroke-dasharray="8 4" />
+
+    <!-- Left Face -->
+    <polygon points="146,182 256,244 256,368 146,306" fill="url(#leftFaceGrad)" stroke="#3b82f6" stroke-width="3" stroke-linejoin="round" />
+    <!-- Left Circuit Lines -->
+    <path d="M 175,220 L 225,250 L 225,320" fill="none" stroke="#60a5fa" stroke-width="2.5" opacity="0.7" />
+    <circle cx="225" cy="320" r="4" fill="#38bdf8" filter="url(#neonGlow)" />
+
+    <!-- Right Face -->
+    <polygon points="256,244 366,182 366,306 256,368" fill="url(#rightFaceGrad)" stroke="#0284c7" stroke-width="3" stroke-linejoin="round" />
+    <!-- Right Circuit Lines -->
+    <path d="M 335,220 L 285,250 L 285,320" fill="none" stroke="#38bdf8" stroke-width="2.5" opacity="0.7" />
+    <circle cx="285" cy="320" r="4" fill="#7dd3fc" filter="url(#neonGlow)" />
+
+    <!-- Center Floating Holographic Plate -->
+    <polygon points="256,170 310,200 256,230 202,200" fill="#38bdf8" opacity="0.3" filter="url(#neonGlow)" />
+  </g>
+
+  <!-- Left Code Bracket "{" -->
+  <g filter="url(#neonGlow)">
+    <path d="M 116,190 C 88,190 76,204 76,226 L 76,238 C 76,248 68,256 54,256 C 68,256 76,264 76,274 L 76,286 C 76,308 88,322 116,322" 
+          fill="none" stroke="url(#cyanGrad)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+
+  <!-- Right Code Bracket "}" -->
+  <g filter="url(#neonGlow)">
+    <path d="M 396,190 C 424,190 436,204 436,226 L 436,238 C 436,248 444,256 458,256 C 444,256 436,264 436,274 L 436,286 C 436,308 424,322 396,322" 
+          fill="none" stroke="url(#cyanGrad)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+
+  <!-- DevOS Wordmark -->
+  <text x="256" y="440" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif" font-size="44" font-weight="800" text-anchor="middle" letter-spacing="1">
+    <tspan fill="#38bdf8">Dev</tspan><tspan fill="#ffffff">OS</tspan>
+  </text>
+  <text x="256" y="468" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif" font-size="14" font-weight="500" fill="#94a3b8" text-anchor="middle" letter-spacing="3">
+    AI DEVELOPER OS
+  </text>
+</svg>

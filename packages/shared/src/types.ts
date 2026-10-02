@@ -85,10 +85,12 @@ export interface AIToolCall {
   id: string;
   name: string;
   arguments: Record<string, unknown>;
+  /** Provider-specific metadata (e.g., Gemini thought_signature) */
+  metadata?: Record<string, unknown>;
 }
 
 export interface AIProviderConfig {
-  provider: 'openai' | 'anthropic' | 'ollama';
+  provider: 'openai' | 'anthropic' | 'ollama' | 'gemini';
   apiKey?: string;
   model: string;
   baseUrl?: string;

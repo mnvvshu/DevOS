@@ -3,6 +3,7 @@ import type { AIProvider } from './provider.js';
 import { OpenAIProvider } from './openai.js';
 import { AnthropicProvider } from './anthropic.js';
 import { OllamaProvider } from './ollama.js';
+import { GeminiProvider } from './gemini.js';
 import { getLogger } from '@devos/logger';
 
 const logger = getLogger({ module: 'ai-providers' });
@@ -15,6 +16,8 @@ export function createProvider(config: AIProviderConfig): AIProvider {
       return new AnthropicProvider(config);
     case 'ollama':
       return new OllamaProvider(config);
+    case 'gemini':
+      return new GeminiProvider(config);
     default:
       throw new Error(`Unknown AI provider: ${config.provider}`);
   }
@@ -42,6 +45,11 @@ export function createProviderFromEnv(): AIProvider {
     case 'ollama':
       config.baseUrl = process.env['OLLAMA_BASE_URL'] || 'http://localhost:11434';
       config.model = process.env['OLLAMA_MODEL'] || 'llama3.1';
+      break;
+    case 'gemini':
+      config.apiKey = process.env['GEMINI_API_KEY'];
+      config.model = process.env['GEMINI_MODEL'] || 'gemini-flash-latest';
+      config.baseUrl = process.env['GEMINI_BASE_URL'];
       break;
   }
 

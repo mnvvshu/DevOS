@@ -10,8 +10,20 @@ It reads your code. It runs your tests. It finds bugs and fixes them.
 Everything stays on your machine.
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![React](https://img.shields.io/badge/React_19-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js->=20-339933?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Fastify](https://img.shields.io/badge/Fastify-5.2-000000?style=flat-square&logo=fastify&logoColor=white)](https://fastify.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+
+[![Three.js](https://img.shields.io/badge/Three.js-3D_Visuals-black?style=flat-square&logo=three.js&logoColor=white)](https://threejs.org/)
+[![Turborepo](https://img.shields.io/badge/Turborepo-Monorepo-EF4444?style=flat-square&logo=turborepo&logoColor=white)](https://turbo.build/)
+[![pnpm](https://img.shields.io/badge/pnpm-Workspace-F69220?style=flat-square&logo=pnpm&logoColor=white)](https://pnpm.io/)
+[![Electron](https://img.shields.io/badge/Electron-Desktop-47848F?style=flat-square&logo=electron&logoColor=white)](https://www.electronjs.org/)
+[![Architecture](https://img.shields.io/badge/Architecture-Local--First-8B5CF6?style=flat-square)](docs/SECURITY.md)
+[![Dependencies](https://img.shields.io/badge/Dependencies-Zero_Native-10B981?style=flat-square)]()
+[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square&logo=github)](docs/CONTRIBUTING.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
 
 </div>
 
@@ -206,18 +218,48 @@ pnpm lint          # ESLint
 
 ---
 
+## Community & Support
+
+- 🌟 **Star this repository** if you find DevOS useful — it helps the project grow!
+- 🐛 **Found a bug?** Open an issue on [GitHub Issues](https://github.com/mnvvshu/DevOS/issues).
+- 💡 **Feature idea?** Start a discussion or submit a pull request.
+
+---
+
 ## Contributing
 
-PRs welcome. Read [CONTRIBUTING.md](docs/CONTRIBUTING.md) first.
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+Please review [CONTRIBUTING.md](docs/CONTRIBUTING.md) for code style guidelines and development workflow.
+
+---
 
 ## License
 
-MIT
+Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for more information.
 
 ---
 
 <div align="center">
 
-Built by [mnvvshu](https://github.com/mnvvshu)
+<img src="docs/logo.png" alt="DevOS" width="64" style="border-radius: 14px; margin-bottom: 8px;" />
+
+### DevOS
+
+**Local-First AI Developer Operating System**
+
+Crafted with care by [**mnvvshu**](https://github.com/mnvvshu)
+
+[Website](http://localhost:3000) • [Documentation](docs/) • [Architecture](docs/ARCHITECTURE.md) • [Security](docs/SECURITY.md)
+
+<br/>
+
+[↑ Back to Top](#devos)
 
 </div>

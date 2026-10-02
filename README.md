@@ -220,9 +220,9 @@ pnpm lint          # ESLint
 
 ## Community & Support
 
-- 🌟 **Star this repository** if you find DevOS useful — it helps the project grow!
-- 🐛 **Found a bug?** Open an issue on [GitHub Issues](https://github.com/mnvvshu/DevOS/issues).
-- 💡 **Feature idea?** Start a discussion or submit a pull request.
+- **Star this repository** if you find DevOS useful — it helps the project grow!
+- **Found a bug?** Open an issue on [GitHub Issues](https://github.com/mnvvshu/DevOS/issues).
+- **Feature idea?** Start a discussion or submit a pull request.
 
 ---
 
